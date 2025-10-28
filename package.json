@@ -1,0 +1,21 @@
+{
+  "name": "tugas-automation1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha ./test/*.js",
+    "test:report": "mocha ./test/*.js --reporter mochawesome"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "chromedriver": "^141.0.6",
+    "mocha": "^11.7.4",
+    "mochawesome": "^7.1.4",
+    "mochawesome-report-generator": "^6.3.0",
+    "selenium-webdriver": "^4.38.0"
+  }
+}

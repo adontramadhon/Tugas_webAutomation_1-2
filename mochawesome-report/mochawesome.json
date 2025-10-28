@@ -1,0 +1,215 @@
+{
+  "stats": {
+    "suites": 2,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-10-28T03:26:17.077Z",
+    "end": "2025-10-28T03:26:19.351Z",
+    "duration": 2274,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "2b81f160-7e1d-4f82-b720-ebe8791630e8",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "0ecf8a03-77ad-4e33-82ee-beb0d7063b21",
+          "title": "Saucedemo Login Test",
+          "fullFile": "D:\\Tugas Web automation\\Tugas-automation1\\test\\login-test.js",
+          "file": "\\test\\login-test.js",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook in \"Saucedemo Login Test\"",
+              "fullTitle": "Saucedemo Login Test \"before all\" hook in \"Saucedemo Login Test\"",
+              "timedOut": false,
+              "duration": 620,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "let options = new chrome.Options();\noptions.addArguments(\"--disable-gpu\");\noptions.addArguments(\"--no-sandbox\");\noptions.addArguments(\"--disable-dev-shm-usage\");\n// FIX untuk Chromedriver terbaru\nconst service = new chrome.ServiceBuilder(require(\"chromedriver\").path);\ndriver = await new Builder()\n  .forBrowser(\"chrome\")\n  .setChromeOptions(options)\n  .setChromeService(service) // ← ini penting, ganti dari setDefaultService\n  .build();",
+              "err": {},
+              "uuid": "b5e3be26-41b7-4891-aaa3-9bdc97ac32e9",
+              "parentUUID": "0ecf8a03-77ad-4e33-82ee-beb0d7063b21",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after all\" hook in \"Saucedemo Login Test\"",
+              "fullTitle": "Saucedemo Login Test \"after all\" hook in \"Saucedemo Login Test\"",
+              "timedOut": false,
+              "duration": 39,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "if (driver) {\n  await driver.quit();\n}",
+              "err": {},
+              "uuid": "950b19de-50e4-42b5-92fc-382ed35fca8f",
+              "parentUUID": "0ecf8a03-77ad-4e33-82ee-beb0d7063b21",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "Berhasil login dengan valid credentials",
+              "fullTitle": "Saucedemo Login Test Berhasil login dengan valid credentials",
+              "timedOut": false,
+              "duration": 442,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.get(\"https://www.saucedemo.com/\");\nawait driver.findElement(By.id(\"user-name\")).sendKeys(\"standard_user\");\nawait driver.findElement(By.id(\"password\")).sendKeys(\"secret_sauce\");\nawait driver.findElement(By.id(\"login-button\")).click();\nawait driver.wait(until.urlContains(\"inventory\"), 10000);\nconst currentUrl = await driver.getCurrentUrl();\nassert(currentUrl.includes(\"inventory\"));",
+              "err": {},
+              "uuid": "8444e20d-6a2f-4f7a-884e-33167bb28594",
+              "parentUUID": "0ecf8a03-77ad-4e33-82ee-beb0d7063b21",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "8444e20d-6a2f-4f7a-884e-33167bb28594"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 442,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 50000
+        },
+        {
+          "uuid": "52242e59-7e78-4185-9db3-7e9fd624d0f7",
+          "title": "Sorting Produk di SauceDemo",
+          "fullFile": "D:\\Tugas Web automation\\Tugas-automation1\\test\\sort-product.test.js",
+          "file": "\\test\\sort-product.test.js",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook in \"Sorting Produk di SauceDemo\"",
+              "fullTitle": "Sorting Produk di SauceDemo \"before all\" hook in \"Sorting Produk di SauceDemo\"",
+              "timedOut": false,
+              "duration": 1008,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "driver = await buildDriver();\nloginPage = new LoginPage(driver);\ninventoryPage = new InventoryPage(driver);\nawait loginPage.open(\"https://www.saucedemo.com/\");\nawait loginPage.login(\"standard_user\", \"secret_sauce\");\nawait inventoryPage.waitForInventoryPage();",
+              "err": {},
+              "uuid": "0633c004-fab0-4635-92d7-c4234cb632b8",
+              "parentUUID": "52242e59-7e78-4185-9db3-7e9fd624d0f7",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after all\" hook in \"Sorting Produk di SauceDemo\"",
+              "fullTitle": "Sorting Produk di SauceDemo \"after all\" hook in \"Sorting Produk di SauceDemo\"",
+              "timedOut": false,
+              "duration": 39,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "if (driver) {\n  await driver.quit();\n}",
+              "err": {},
+              "uuid": "26d4f1a1-5118-41e6-8c3b-6b3a23b57a75",
+              "parentUUID": "52242e59-7e78-4185-9db3-7e9fd624d0f7",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "Urutkan produk dari A-Z",
+              "fullTitle": "Sorting Produk di SauceDemo Urutkan produk dari A-Z",
+              "timedOut": false,
+              "duration": 122,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await inventoryPage.sortProductsAZ();\nconst productNames = await inventoryPage.getProductNames();\nconst sortedNames = [...productNames].sort();\nassert.deepStrictEqual(productNames, sortedNames);",
+              "err": {},
+              "uuid": "c40aab89-9f5f-4835-ac80-ad817870772d",
+              "parentUUID": "52242e59-7e78-4185-9db3-7e9fd624d0f7",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "c40aab89-9f5f-4835-ac80-ad817870772d"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 122,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 50000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "11.7.4"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.3.0"
+    }
+  }
+}
