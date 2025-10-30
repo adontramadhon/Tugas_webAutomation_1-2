@@ -1,35 +1,18 @@
-const BasePage = require("./basePage");
-const { By, until } = require("selenium-webdriver");
+import { By } from "selenium-webdriver";
+import BasePage from "./basePage.js";
 
-class InventoryPage extends BasePage {
-  // Locator
-  productSortDropdown = By.className("product_sort_container");
-  inventoryItems = By.className("inventory_item_name");
-
-  // Tunggu sampai halaman inventory tampil
-  async waitForInventoryPage() {
-    await this.driver.wait(
-      until.elementLocated(this.productSortDropdown),
-      5000
-    );
+export default class InventoryPage extends BasePage {
+  constructor(driver) {
+    super(driver);
+    this.inventoryTitle = By.className("title");
+    this.cartButton = By.id("shopping_cart_container");
   }
 
-  // Sorting produk
-  async sortProductsAZ() {
-    const dropdown = await this.driver.findElement(this.productSortDropdown);
-    await dropdown.click();
-    await dropdown.findElement(By.css('option[value="az"]')).click();
+  async getInventoryTitle() {
+    return await this.getText(this.inventoryTitle);
   }
 
-  // Ambil list nama produk setelah sorting
-  async getProductNames() {
-    const elements = await this.driver.findElements(this.inventoryItems);
-    const names = [];
-    for (let el of elements) {
-      names.push(await el.getText());
-    }
-    return names;
+  async openCart() {
+    await this.clickElement(this.cartButton);
   }
 }
-
-module.exports = InventoryPage;
